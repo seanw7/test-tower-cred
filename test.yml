@@ -6,7 +6,6 @@
 - name: Deploy a VM
   hosts: localhost
   connection: local
-  become: true
   vars:
     # Fetch subscription-manager credentials
     vcenter_host: "{{ lookup('env', 'VMWARE_HOST') }}"
