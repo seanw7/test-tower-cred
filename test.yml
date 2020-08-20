@@ -4,7 +4,8 @@
 # cat playbook.yml
 ---
 - name: Deploy a VM
-  hosts: all
+  hosts: localhost
+  connection: local
   become: true
   vars:
     # Fetch subscription-manager credentials
