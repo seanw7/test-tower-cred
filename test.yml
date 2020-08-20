@@ -1,0 +1,18 @@
+# export SMUSERNAME=andrew.ludwar
+# export SMPASSWORD=secretpassword
+
+# cat playbook.yml
+---
+- name: Deploy a VM
+  hosts: all
+  become: true
+  vars:
+    # Fetch subscription-manager credentials
+    vcenter_host: "{{ lookup('env', 'VMWARE_HOST') }}"
+    vcenter_user: "{{ lookup('env', 'VMWARE_USER') }}"
+    vcenter_pass: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+
+  tasks:
+    - name: Register host with subscription-manager
+      debug:
+        msg: "VCENTER_HOST: {{ vcenter_host }}, VCENTER_USER: {{ vcenter_user }}, VCENTER_PASS: {{ vcenter_pass }}"
