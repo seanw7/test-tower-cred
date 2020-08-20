@@ -4,8 +4,8 @@
 # cat playbook.yml
 ---
 - name: Deploy a VM
-  hosts: localhost
-  connection: local
+  hosts: all
+#   connection: local
   vars:
     # Fetch subscription-manager credentials
     vcenter_host: "{{ lookup('env', 'VMWARE_HOST') }}"
